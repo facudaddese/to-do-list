@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+.grid {
+  grid-template-areas:
+    "h1"
+    "input";
+  justify-content: center;
+  justify-self: center;
+}
+
+@media (max-width: 430px) {
+  .btns {
+    width: 100%;
+    padding-top: 10px;
+  }
+  .input {
+    width: 100%;
+    margin: 0 15px;
+  }
+}

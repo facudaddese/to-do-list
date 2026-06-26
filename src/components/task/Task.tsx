@@ -7,13 +7,13 @@ const Task = ({ tasks, dispatch }: TaskProps) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="flex justify-between py-3 px-2 mb-4 border border-gray-300 rounded-[10px] items-center shadow-inner"
+          className="flex flex-wrap justify-between py-3 px-2 mb-4 border border-gray-300 rounded-[10px] items-center shadow-inner"
         >
-          <div className="flex gap-4">
+          <div className="flex flex-1 items-center gap-3">
             <input type="checkbox" className="cursor-pointer" />
-            <li className="w-100">{task.name}</li>
+            <li className="min-w-30 mr-3">{task.name}</li>
           </div>
-          <div className="flex gap-4 w-full">
+          <div className="flex justify-center items-center gap-4 btns">
             <Button
               label="Edit task"
               handle={() =>

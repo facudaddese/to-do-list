@@ -1,7 +1,0 @@
-.grid {
-  grid-template-areas:
-    "h1"
-    "input";
-  justify-content: center;
-  justify-self: center;
-}

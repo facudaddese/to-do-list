@@ -41,7 +41,7 @@ const reducer = (state: State, action: ActionType) => {
   }
 };
 
-export const useTasks = () => {
+export const useTasksReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return { state, dispatch };
 };
