@@ -3,7 +3,9 @@
 .grid {
   grid-template-areas:
     "h1"
-    "input";
+    "input"
+    "tasks"
+    "info";
   justify-content: center;
   justify-self: center;
 }

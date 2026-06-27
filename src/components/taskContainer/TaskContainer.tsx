@@ -1,6 +1,7 @@
 import { useInput } from "../../hooks/useInput";
 import Button from "../button/Button";
 import Input from "../input/Input";
+import InfoTasks from "../infoTasks/InfoTasks";
 import { useTasksReducer } from "../../hooks/useTasksReducer";
 import Task from "../task/Task";
 
@@ -40,6 +41,7 @@ const TaskContainer = () => {
         />
       </div>
       <Task tasks={state.tasks} dispatch={dispatch} />
+      <InfoTasks tasks={state.tasks} />
     </>
   );
 };

@@ -23,7 +23,7 @@ const Task = ({ tasks, dispatch }: TaskProps) => {
   };
 
   return (
-    <section className="mt-4 px-4 max-w-screen">
+    <section className="[grid-area:tasks] mt-4 px-4 max-w-screen">
       {tasks.map((task) => {
         const isEditing = editId === task.id;
         return (
@@ -32,7 +32,13 @@ const Task = ({ tasks, dispatch }: TaskProps) => {
             className="flex flex-wrap justify-between py-3 px-2 mb-4 border border-gray-300 rounded-[10px] items-center shadow-inner"
           >
             <div className="flex items-center gap-3 max-w-full">
-              <input type="checkbox" className="cursor-pointer" />
+              <input
+                type="checkbox"
+                className="cursor-pointer"
+                onChange={() =>
+                  dispatch({ type: "toggleCompleted", payload: task.id })
+                }
+              />
               {isEditing ? (
                 <input
                   type="text"
@@ -41,7 +47,9 @@ const Task = ({ tasks, dispatch }: TaskProps) => {
                   className="border-b mr-2 focus:outline-0 font-medium"
                 />
               ) : (
-                <p className="max-w-50 min-w-30 mr-3 wrap-break-word task-name">
+                <p
+                  className={`${task.completed ? "line-through text-gray-400 italic" : ""} max-w-50 min-w-30 mr-3 wrap-break-word task-name`}
+                >
                   {task.name}
                 </p>
               )}

@@ -11,7 +11,8 @@ export type ActionType =
   | { type: "addTask"; payload: Task }
   | { type: "deleteTask"; payload: string }
   | { type: "editTask"; payload: Payload }
-  | { type: "clearTasks" };
+  | { type: "clearTasks" }
+  | { type: "toggleCompleted"; payload: string };
 
 const reducer = (state: State, action: ActionType) => {
   switch (action.type) {
@@ -36,6 +37,13 @@ const reducer = (state: State, action: ActionType) => {
       };
     case "clearTasks":
       return { ...state, tasks: [] };
+    case "toggleCompleted":
+      return {
+        ...state,
+        tasks: state.tasks.map((el) =>
+          el.id === action.payload ? { ...el, completed: !el.completed } : el,
+        ),
+      };
     default:
       return state;
   }
